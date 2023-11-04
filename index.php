@@ -21,7 +21,7 @@
                 </div>
                 <div class="menu-toggle bx bxs-grid-alt">
             </div>
-            <a href="#" class="logo">Diphs<span>Studio</span></a>
+            <a href="index.php" class="logo">Diphs<span>Studio</span></a>
         </nav>
     </header>
 
