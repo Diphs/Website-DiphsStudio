@@ -25,20 +25,14 @@
         </nav>
     </header>
 
-    <div class="form-outimg">
-        <div class="label-outimg">
-            <div class="label-before">
-                <a href="#">Sebelum</a>
-            </div>
-            <div class="label-after active">
-                <a href="#">Sesudah</a>
-            </div>
+    <div class="fill-about">
+        <div class="img-about">
+            <img class="img2-about" src="assets/gambar/undraw_work_from_anywhere_re_s2i6 1.png" alt="">
         </div>
-        <div class="out-img">
-            <img src="assets/gambar/sample-sepatu.jpg" alt="">
-        </div>
-        <div class="button-save">
-            <button>Simpan</button>
+
+        <div class="text-about">
+            <h2>Menghilangkan latar belakang hanya dalam sekali klik.</h2>
+            <p>DiphsStudio adalah platform online yang memungkinkan pengguna untuk dengan cepat menghilangkan latar belakang dari gambar atau foto. Pengguna hanya perlu mengunggah gambar, dan perangkat lunak akan secara otomatis mengenali dan menghapus latar belakangnya. Hasilnya adalah gambar objek utama tanpa latar belakang.</p>
         </div>
     </div>
 

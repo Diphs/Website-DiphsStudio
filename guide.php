@@ -45,7 +45,7 @@
                 </div>
                 <div class="text-guide">
                     <h3>Hapus</h3>
-                    <p>Setelah gambar diunggah,  maka akan memulai proses otomatis untuk menghapus latar belakang dari gambar tersebut.</p>
+                    <p>Setelah gambar diunggah, maka akan memulai proses otomatis untuk menghapus latar belakang dari gambar tersebut.</p>
                 </div>
             </div>
             <div class="guide">
