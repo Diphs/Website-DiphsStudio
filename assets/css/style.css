@@ -329,10 +329,10 @@ section {
     background-color: var(--main-color);
     border-radius: 50%;
     align-items: center;
-    padding: 10px;
+    padding: 17px;
     margin: auto;
-    width: 75px;
-    height: 75px;
+    width: 90px;
+    height: 90px;
 }
 
 .text-guide{
@@ -396,6 +396,99 @@ section {
 .fill-about .text-about p{
     font-size: 2rem;
     font-weight: 400;
+}
+
+/* contact */
+
+.container-contact{
+    margin: auto;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1800px;
+    display: flex;
+    margin-top: 3%;
+}
+
+.container-contact .img-contact{
+    width: 50%;
+    margin-left: 2%;
+}
+
+.img-contact img{
+    width: 784px;
+    height: 639px;
+}
+
+.container-contact .email-contact{
+    width: 50%;
+}
+
+.email-contact .form-email{
+    padding: 10%;
+    width: 784px;
+    height: 639px;
+    margin: auto;
+    grid-template-columns: repeat(2, 1fr);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    border-radius: 20px;
+    background-color: var(--main-color);
+}
+
+.form-email .input-container{
+    font-family: var(--main-font);
+    color: white;
+    font-size: 1rem;
+    font-weight: 400;
+    position: relative;
+    margin: 1rem 0;
+}
+
+.form-email h2{
+    font-family: var(--main-font);
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+}
+  
+.input {
+    margin-top: 1%;
+    display: flex;
+    width: 100%;
+    outline: none;
+    border: 2px solid white;
+    background: none;
+    padding: 0.6rem 1.2rem;
+    font-weight: 400;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    border-radius: 15px;
+    transition: 0.3s;
+    font-family: var(--main-font);
+    background-color: white;
+}
+
+textarea.input {
+    padding: 0.8rem 1.2rem;
+    min-height: 150px;
+    border-radius: 15px;
+    resize: none;
+    overflow-y: auto;
+    font-family: var(--main-font);
+}
+
+.form-email .btn {
+    margin-top: 5px;
+    font-family: var(--main-font);
+    color: var(--main-color);
+    background: white;
+    padding: 10px 25px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.5s;
 }
 
 @media screen and (max-width: 991px) {

@@ -14,9 +14,9 @@
             <div class="container nav-wrapper">
                 <div class="menu-wrapper">
                     <ul class="menu">
-                        <li class="menu-item"><a href="#" class="menu-link">Cara penggunaan</a></li>
-                        <li class="menu-item"><a href="#" class="menu-link">Tentang</a></li>
-                        <li class="menu-item"><a href="#" class="menu-link">Kontak</a></li>
+                        <li class="menu-item"><a href="guide.php" class="menu-link">Cara penggunaan</a></li>
+                        <li class="menu-item"><a href="about.php" class="menu-link">Tentang</a></li>
+                        <li class="menu-item"><a href="contact.php" class="menu-link">Kontak</a></li>
                     </ul>
                 </div>
                 <div class="menu-toggle bx bxs-grid-alt">
