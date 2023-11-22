@@ -1,84 +1,77 @@
-const dropArea = document.querySelector(".drag-area"),
-dragText = dropArea.querySelector("header"),
-button = dropArea.querySelector("button"),
-input = dropArea.querySelector("input");
-let file;
-var fileobj;
+const dragArea = document.getElementById("dragArea");
+const fileInput = document.getElementById("file");
+const dragText = document.querySelector("p");
 
-button.onclick = () => {
-  input.click();
-  file_browse();
-}
-
-input.addEventListener("change", function() {
-  file = this.files[0];
-  dropArea.classList.add("active");
-  showFile();
+dragArea.addEventListener("dragover", (event) => {
+    event.preventDefault();
+    dragArea.classList.add("active");
+    dragText.textContent = "Lepaskan untuk Mengunggah File";
 });
 
-dropArea.addEventListener("dragover", (event) => {
-  event.preventDefault();
-  dropArea.classList.add("active");
-  dragText.textContent = "Release to Upload File";
+dragArea.addEventListener("dragleave", () => {
+    dragArea.classList.remove("active");
+    dragText.textContent = "Atau seret gambar ke sini";
 });
 
-dropArea.addEventListener("dragleave", () => {
-  dropArea.classList.remove("active");
-  dragText.textContent = "Drag & Drop to Upload File";
-});
-
-dropArea.addEventListener("drop", (event) => {
-  event.preventDefault();
-  file = event.dataTransfer.files[0];
-  showFile();
-});
-
-function showFile() {
-  let fileType = file.type;
-  let validExtensions = ["image/jpeg", "image/jpg", "image/png"];
-  if (validExtensions.includes(fileType)) {
-    let fileReader = new FileReader();
-    fileReader.onload = () => {
-      let fileURL = fileReader.result;
-      let imgTag = `<img src="${fileURL}" alt="">`;
-      dropArea.innerHTML = imgTag;
+dragArea.addEventListener("drop", (event) => {
+    event.preventDefault();
+    dragArea.classList.remove("active");
+    const files = event.dataTransfer.files;
+    if (files.length > 0) {
+        fileInput.files = files;
+        handleFile();
     }
-    fileReader.readAsDataURL(file);
-  } else {
-    alert("This is not an Image File!");
-    dropArea.classList.remove("active");
-    dragText.textContent = "Drag & Drop to Upload File";
-  }
+});
+
+function uploadFile() {
+    fileInput.click();
 }
 
-function upload_file(e) {
-    e.preventDefault();
-    fileobj = e.dataTransfer.files[0];
-    js_file_upload(fileobj);
-}
+function handleFile() {
+    const file = fileInput.files[0];
+    if (file) {
+        const formData = new FormData();
+        formData.append("file", file);
 
-function file_browse() {
-  document.getElementById('file').onchange = function() {
-      fileobj = document.getElementById('file').files[0];
-      js_file_upload(fileobj);
-  };
-}
-
-function js_file_upload(file_obj) {
-    if (file_obj != undefined) {
-        var form_data = new FormData();
-        form_data.append('file', file_obj);
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("POST", "upload.php", true);
-        xhttp.onload = function(event) {
-
-            if (xhttp.status == 200) {
-                console.log("Uploaded!");
-            } else {
-                alert(xhttp.status);
+        fetch("http://127.0.0.1:5000/remove_background", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Gagal mengirim file ke server');
             }
-        }
-
-        xhttp.send(form_data);
+            return response.blob();
+        })
+        .then(blob => {
+            const url = URL.createObjectURL(blob);
+            // Tampilkan atau proses lebih lanjut gambar hasilnya, misalnya, set sebagai latar belakang
+            console.log("Menerima gambar yang telah diproses:", url);
+        })
+        .catch(error => console.error("Error:", error.message));
     }
+}
+
+function sendSampleImage(sampleFileName) {
+    const samplePath = "assets/gambar/" + sampleFileName;
+    
+    fetch("http://127.0.0.1:5000/remove_background", {
+        method: "POST",
+        body: createFormData(samplePath)
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Gagal mengirim file ke server');
+        }
+        return response.blob();
+    })
+    .then(blob => {
+        const url = URL.createObjectURL(blob);
+        // Tampilkan atau proses lebih lanjut gambar hasilnya, misalnya, set sebagai latar belakang
+        console.log("Menerima gambar yang telah diproses:", url);
+    })
+    .catch(error => {
+        console.error("Error:", error.message);
+        alert('Terjadi kesalahan saat mengunggah dan memproses gambar. Silakan coba lagi.');
+    });
 }

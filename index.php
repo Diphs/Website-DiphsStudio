@@ -1,3 +1,9 @@
+<?php
+    $command = "python3 removebg.py";
+    $output = shell_exec($command);
+    echo "<pre>$output</pre>";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,12 +33,12 @@
 
     <div class="home">
         <div class="up-img">
-            <div class="drag-area" ondrop="upload_file(event)" ondragover="return false">
+            <div class="drag-area" id="dragArea">
                 <div class="icon"><i class="fas fa-cloud-upload-alt"></i></div>
                     <div class='iconcam bx bxs-camera'></div>
-                    <button>Unggah Gambar</button>
-                    <header>Atau seret gambar ke sini</header>
-                <input type="file" name="file" id="file" hidden>
+                    <button onclick="uploadFile()">Unggah Gambar</button>
+                    <p>Atau seret gambar ke sini</p>
+                <input type="file" name="file" id="file" hidden onchange="handleFile()">
             </div>
 
             <div class="no-img">
@@ -41,16 +47,16 @@
                     <p class="label-tryimg">Coba contoh berikut:</p>
                 </div>
                 <div class="sample-img">
-                    <div class="sample-img1">
+                    <div class="sample-img1" onclick="sendSampleImage('sample-mobil.jpg')">
                         <img src="assets/gambar/sample-mobil.jpg" alt="">
                     </div>
-                    <div class="sample-img2">
+                    <div class="sample-img2" onclick="sendSampleImage('sample-orang.jpg')">
                         <img src="assets/gambar/sample-orang.jpg" alt="">
                     </div>
-                    <div class="sample-img3">
+                    <div class="sample-img3" onclick="sendSampleImage('sample-hewan.jpg')">
                         <img src="assets/gambar/sample-hewan.jpg" alt="">
                     </div>
-                    <div class="sample-img4">
+                    <div class="sample-img4" onclick="sendSampleImage('sample-sepatu.jpg')">
                         <img src="assets/gambar/sample-sepatu.jpg" alt="">
                     </div>
                 </div>

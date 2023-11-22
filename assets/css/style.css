@@ -112,7 +112,7 @@ section {
     font-size: 100px;
 }
 
-.drag-area header{
+.drag-area p {
     padding-top: 12px;
     font-family: var(--main-font);
     font-weight: 400;

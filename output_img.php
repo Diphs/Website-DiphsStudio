@@ -27,15 +27,15 @@
 
     <div class="form-outimg">
         <div class="label-outimg">
-            <div class="label-before active">
+            <div class="label-before">
                 <a href="#">Sebelum</a>
             </div>
-            <div class="label-after">
+            <div class="label-after active">
                 <a href="#">Sesudah</a>
             </div>
         </div>
         <div class="out-img">
-            <img src="assets/gambar/sample-sepatu.jpg" alt="">
+            <img src="assets/gambar/sample-sepatunobg.png" alt="">
         </div>
         <div class="button-save">
             <button>Simpan</button>
