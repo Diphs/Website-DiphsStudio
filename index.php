@@ -1,6 +1,5 @@
 <?php
-    $command = "python3 removebg.py";
-    $output = shell_exec($command);
+    $output = shell_exec('python3 removebg.py');
     echo "<pre>$output</pre>";
 ?>
 

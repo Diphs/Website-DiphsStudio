@@ -7,7 +7,7 @@ import os
 app = Flask(__name__)
 CORS(app)  # Enable CORS for all routes
 
-UPLOAD_FOLDER = 'assets/gambar/'
+UPLOAD_FOLDER = 'hasil_gambar/'
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 @app.route('/remove_background', methods=['POST'])
