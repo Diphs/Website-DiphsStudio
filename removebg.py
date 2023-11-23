@@ -1,4 +1,4 @@
-from flask import Flask, request, send_file, jsonify
+from flask import Flask, request, send_file, jsonify, render_template
 from rembg import remove
 from io import BytesIO
 from flask_cors import CORS
@@ -31,13 +31,17 @@ def remove_background():
                 f.write(output_data_io.read())
 
             # Kirim gambar yang telah diproses sebagai respons
-            return send_file(output_data_io, mimetype='image/png', as_attachment=True, download_name='output.png')
+            return jsonify({'success': True, 'output_image': 'output.png'})
 
     except Exception as e:
         return jsonify({'error': str(e)})
 
     # Jika tidak ada file atau terjadi kesalahan lain
     return jsonify({'error': 'File tidak ditemukan atau terjadi kesalahan lainnya'})
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 if __name__ == '__main__':
     app.run(debug=True)
