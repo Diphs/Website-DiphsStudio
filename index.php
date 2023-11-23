@@ -37,7 +37,7 @@
                     <div class='iconcam bx bxs-camera'></div>
                     <button onclick="uploadFile()">Unggah Gambar</button>
                     <p>Atau seret gambar ke sini</p>
-                <input type="file" name="file" id="file" hidden onchange="handleFile()">
+                <input type="file" name="file" id="file" accept="image/*" hidden onchange="handleFile()">
             </div>
 
             <div class="no-img">

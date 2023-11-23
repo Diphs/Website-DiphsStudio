@@ -47,7 +47,10 @@ function handleFile() {
             const url = URL.createObjectURL(blob);
             console.log("Menerima gambar yang telah diproses:", url);
         })
-        .catch(error => console.error("Error:", error.message));
+        .catch(error => {
+            console.error("Error:", error.message);
+            alert('Terjadi kesalahan saat mengunggah dan memproses gambar. Silakan coba lagi.');
+        });
     }
 }
 
